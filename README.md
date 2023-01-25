@@ -1,2 +1,2 @@
-# exercism-solutions
-Javascript exercism.org problems solutions
+# Problem Solutions
+Solution for https://exercism.org/dashboard problems. 
