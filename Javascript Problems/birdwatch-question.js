@@ -7,7 +7,7 @@
  * @returns {number} total bird count
  */
 function totalBirdCount(birdsPerDay) {
-return birdsPerDay.reduce((a, b) => a + b)
+  return birdsPerDay.reduce((a, b) => a + b)
 }
 
 /*
