@@ -25,12 +25,19 @@ def equilateral(sides):
 
 def isosceles(sides):
     # equilateral triangles are also isosceles
-    if (any(sides) <= 0) or (sum(sides[:-1]) >= sides[-1]):
-        return False
-    return len(sides)-1 == len(set(sides))
-    
+    if equilateral(sides):
+        return True
+    elif sum(sides[:-1]) < sides[-1] or sum(sides[1:]) < sides[0] or sum([sides[0], sides[-1]]) < sides[1]:
+        return False    
+    elif any(sides.count(x) == 2 for x in sides):
+        return True
+    return False
 
-print(isosceles([3, 4, 4]))
+
+
 
 def scalene(sides):
-    pass
+    if any(sides.count(x) > 1 for x in sides):
+        return False
+    return True
+
