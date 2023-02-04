@@ -33,22 +33,18 @@ function revokeTicket(visitor) {
    */
 function ticketStatus(tickets, ticketId) {
     if (Object.hasOwn(tickets, ticketId) === true) {
-        if (tickets['ticketID'] === null) {
+        if (tickets[ticketId] === null) {
             return 'not sold';
         } else {
-            return `sold to ${tickets['ticketID']}`;
+            return `sold to ${tickets[ticketId]}`;
         }
     } else {
         return 'unknown ticket id';
     }
 }
-const tickets = {
-    '0H2AZ123': null,
-    '23LA9T41': 'Verena Nardi',
-  };
 
-console.log(tickets['0H2AZ123'] === null)
-console.log(ticketStatus(tickets, '0H2AZ123'));
+
+
   /**
    * Determines the status a ticket has in the ticket tracking object
    * and returns a simplified status message.
@@ -58,9 +54,13 @@ console.log(ticketStatus(tickets, '0H2AZ123'));
    * @returns {string} ticket status
    */
 function simpleTicketStatus(tickets, ticketId) {
-    throw new Error('Please implement the simpleTicketStatus function.');
+    if (ticketStatus(tickets, ticketId) === 'unknown ticket id' || ticketStatus(tickets, ticketId) === 'not sold') {
+        return 'invalid ticket !!!';
+    } else {
+        return tickets[ticketId];
+    }
 }
-  
+
   /**
    * Determines the version of the GTC that was signed by the visitor.
    *
@@ -68,6 +68,10 @@ function simpleTicketStatus(tickets, ticketId) {
    * @returns {string | undefined} version
    */
 function gtcVersion(visitor) {
-    throw new Error('Please implement the gtcVersion function.');
+    if (Object.hasOwn(visitor, 'gtc') === true) {
+        return Object.values(visitor)[3]['version'];
+    } else {
+        return undefined;
+    }
 }
-  
+
