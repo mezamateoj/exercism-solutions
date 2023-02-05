@@ -21,27 +21,51 @@ function preparationTime(layers, avg_time = 2) {
     return layers.length * avg_time;
 }
 
+/**
+ * The function will then determine the quantity of noodles and sauce needed to make your meal. 
+ * The result should be returned as an object with keys noodles and sauce.
+ * @param {Array} layers 
+ * @returns  object with keys noodles and sauce
+ */
+
 // Compute the amounts of noodles and sauce needed
 function quantities(layers) {
-    let counter = {'sauce': undefined, 'noodles': undefined};
-    for (element of layers) {
-        if (element === 'sauce' || element === 'noodles') {
-            if (counter[element] === 'sauce') {
-                counter[element] += 50;     
-            } else if (counter[element] === 'noodles') {
-                counter[element] += 0.2;
-            } 
-        }    
+    let counts = {};
+    let sauceCount = 0;
+    let noodlesCount = 0;
+    for (let i = 0; i < layers.length; i++) {
+        if (layers[i] === 'sauce') {
+            sauceCount += 1;    
+        } else if (layers[i] === 'noodles') {
+            noodlesCount += 1;
+        }
     }
-    return counter;
-    // return counter;
-//     let counts = {};
-//     for (const ingredient of layers) {
-//          if (ingredient === 'sauce' || ingredient === 'noodles') {
-//             counts[ingredient] = counts[ingredient] ? counts[ingredient] + 1 : 1;
-//         }
-//     return counts;
-//     }
-// }
+    counts['noodles'] = noodlesCount * 50;
+    counts['sauce'] = sauceCount * 0.2;
+    return counts;
 }
-console.log(quantities(['sauce', 'noodles', 'sauce', 'meat', 'mozzarella', 'noodles']));
+
+
+/**
+ * 
+ * @param {Array} friendList 
+ * @param {Array} myList
+ * change my lsit with my friends last ingredient. 
+ */
+
+function addSecretIngredient(friendList, myList) {
+    myList.push(friendList[friendList.length - 1])
+}
+
+
+/**
+ * 
+ * @param {object} recipe 
+ * @param {number} portions 
+ * @returns new recipe with the correct number of ingredients by portion.
+ */
+function scaleRecipe(recipe, portions) {
+    let newRecipe =  Object.fromEntries(Object.entries(recipe).map(([k, v]) => [k, v * (portions / 2)]));
+    return newRecipe;
+}
+
