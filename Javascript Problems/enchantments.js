@@ -66,6 +66,7 @@ function getFirstOddCard(stack) {
    * @returns {number} position of the first card that is even
    */
 function getFirstEvenCardPosition(stack) {
-    return stack.indexOf(stack.find((num) => num % 2 === 0)); 
+    const oddNumber = (num) => num % 2 === 0;
+    return stack.findIndex(oddNumber);
   }
   
