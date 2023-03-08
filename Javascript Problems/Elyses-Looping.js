@@ -10,13 +10,9 @@
  */
 function cardTypeCheck(stack, card) {
     let count = 0;
-    stack.forEach((element) => {
-        if (element === card) {
-            count ++;
-        }
-    })
+    stack.forEach(element => count += element == card)
     return count;
-  }
+}
   
   /**
    * Determine how many cards are odd or even
@@ -26,23 +22,15 @@ function cardTypeCheck(stack, card) {
   * @returns {number} number of cards that are either odd or even (depending on `type`)
   */
 function determineOddEvenCards(stack, type) {
-    let typeCardCount = 0;
-    if (type === true) {
-        for (const cards of stack) {
-            if (cards % 2 == 0) {
-                typeCardCount ++;
-            }
-        }
-    }
-    
-    if (type === false) {
-        for (const cards of stack) {
-            if (Math.abs(cards % 2) == 1) {
-                typeCardCount ++;
-            }
-        }
-    }
+    // ternary operator ?
+    const checkType = type ? 0 : 1;
 
-    return typeCardCount;
+    let count = 0;
+    for (const cards of stack) {
+        if (cards % 2 === checkType) {
+            count ++;
+        }
+    }
+    return count;
 }
     
