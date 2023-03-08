@@ -16,8 +16,6 @@ function twoSum(array1, array2) {
 }
 
 
-
-  
   /**
    * Checks whether a number is a palindrome.
    *
@@ -40,13 +38,10 @@ function luckyNumber(value) {
    * @returns {string} error message
    */
 function errorMessage(input) {
-    console.log(typeof(input));
-    if (typeof(input) === undefined || typeof(input) === null) {
-        return 'Required field';
-    }
-    
-    return '';
+  if (!input) {
+    return 'Required field';
+  } else if (isNaN(input) === true || Number(input) === 0) {
+    return 'Must be a number besides 0';
   }
-  
-
-console.log(errorMessage('abc'));
+  return "";
+}
