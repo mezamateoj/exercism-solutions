@@ -25,4 +25,26 @@ Position.prototype.move = function(newX, newY) {
 }
 
 // Remaining Task using class syntax.
+// task 3
+
+class ProgramWindow {
+    constructor() {
+        this.screenSize = new Size(800, 600);
+        this.size = new Size();
+        this.position = new Position();
+
+    }
+
+    resize(size) {
+        this.size.resize(size);
+    }
+}
+
+const programWindow = new ProgramWindow();
+
+const newSize = new Size(600, 400);
+programWindow.resize(newSize);
+console.log(programWindow.size.width);
+// => 600
+console.log(programWindow.size.height);
 
