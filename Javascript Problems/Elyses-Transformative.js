@@ -20,9 +20,16 @@ function seeingDouble(deck) {
    * @returns {number[]} deck with triplicate 3s
    */
 function threeOfEachThree(deck) {
-    throw new Error('Implement the threeOfEachThree function');
-  }
-  
+    return deck.reduce((acc, value) => {
+      if (value === 3) {
+        acc.push(value, value, value);
+      } else {
+        acc.push(value);
+      }
+      return acc;
+    }, []);
+}
+
   /**
    * Extracts the middle two cards from a deck.
    * Assumes a deck is always 10 cards.
@@ -32,7 +39,7 @@ function threeOfEachThree(deck) {
    * @returns {number[]} deck with only two middle cards
    */
 function middleTwo(deck) {
-    throw new Error('Implement the middleTwo function');
+    return deck.slice(4, 6);
   }
   
   /**
@@ -44,9 +51,10 @@ function middleTwo(deck) {
    */
   
 function sandwichTrick(deck) {
-    throw new Error('Implement the sandwichTrick function');
+    deck.splice((deck.length / 2 - 1), 0, deck.pop(), deck.shift());
+    return deck;
   }
-  
+
   /**
    * Removes every card from the deck except 2s.
    *
@@ -55,7 +63,7 @@ function sandwichTrick(deck) {
    * @returns {number[]} deck with only 2s
    */
 function twoIsSpecial(deck) {
-    throw new Error('Implement the twoIsSpecial function');
+    return deck.filter((value) => value === 2);
   }
   
   /**
@@ -66,7 +74,7 @@ function twoIsSpecial(deck) {
    * @returns {number[]} ordered deck
    */
 function perfectlyOrdered(deck) {
-    throw new Error('Implement the perfectlyOrdered function');
+    return deck.sort((a, b) => a - b);
   }
   
   /**
@@ -77,6 +85,6 @@ function perfectlyOrdered(deck) {
    * @returns {number[]} reordered deck
    */
 function reorder(deck) {
-    throw new Error('Implement the reorder function');
+    return deck.reverse();
   }
   
