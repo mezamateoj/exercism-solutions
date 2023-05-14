@@ -3,10 +3,12 @@
 function countHours(year, holidays) {
     let weekDays = [];
     for (let i = 0; i < holidays.length; i++) {
-        holidays[i] = holidays[i].split('/').join('-')
-        weekDays.push(new Date(`${year}-${holidays[i]}`).getDay())
-    }
-    return weekDays;
+        holidays[i] = holidays[i].split('/')
+        let date = new Date(year, parseInt(holidays[i][0]) - 1, parseInt(holidays[i][1]))
+        weekDays.push(date.getDay())
+    }    
+    weekDays = weekDays.filter((day) => day !== 0 && day !== 6)
+    return weekDays.length * 2;
 }
 
 const year = 2022
