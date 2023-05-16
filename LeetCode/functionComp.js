@@ -13,11 +13,19 @@ var compose = function(functions) {
             newValue = fn(x);
             x = newValue;
         });
+        if (newValue === 0) {
+            return x;
+        }
         return newValue;
-
     }
 };
 
-const fn = compose([x => x + 1, x => x * x, x => 2 * x])
-console.log(fn(4)) // 65
 
+// other solution
+// var compose = function(functions) {
+//     return x => functions.reduceRight((acc, fn) => fn(acc), x);
+// };
+
+
+const fn = compose([x => x + 1, x => 2 * x])
+console.log(fn(4)) // 9
