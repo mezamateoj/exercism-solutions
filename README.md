@@ -4,6 +4,8 @@
 
 Solution for https://exercism.org problems. 
 
+Also some AdventJS and Leetcode Problems
+
 There is a link to the exercise at top of every solution.
 
 
