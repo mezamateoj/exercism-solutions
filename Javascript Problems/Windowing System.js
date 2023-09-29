@@ -93,25 +93,14 @@ class ProgramWindow {
     
 }
 
-// const programWindow = new ProgramWindow();
-// const newPosition = new Position(50, 100);
-
-// console.log(programWindow.position.x);
-// console.log(programWindow.position.y);
-
-// programWindow.move(newPosition);
-
-// console.log(programWindow.position.x);
-// console.log(programWindow.position.y);
-
 const programWindow = new ProgramWindow();
 const newPosition = new Position(710, 525);
 programWindow.move(newPosition);
+
 const newSize = new Size(1000, 1000);
 programWindow.resize(newSize);
-
-console.log(programWindow.position.x);
-console.log(programWindow.position.y);
+console.log(programWindow.size.width);
+console.log(programWindow.size.height);
 
 
 // task 4
